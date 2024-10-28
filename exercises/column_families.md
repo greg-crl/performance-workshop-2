@@ -125,3 +125,11 @@ This case illustrates a circumstance where we might want to denormalize the data
 
 duplicate How could you hange the model to improve the performance of this query?
 
+
+
+### Conclusion
+
+denormalization is good for...
+
+[Next Section](denormalization.md)
+
