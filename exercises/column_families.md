@@ -85,7 +85,7 @@ It is possible to move the ```CV```, ```bio```, and ```notes``` columns into a s
              |     bio STRING NULL,
              |     notes STRING NULL,
              |     CONSTRAINT users_pkey PRIMARY KEY (userid ASC)
-             |     FAMILY f1 (userid, password, access_count),
+             |     FAMILY f1 (password, access_count),
              |     FAMILY f2 (cv, bio, notes)
              | )
 ```             
