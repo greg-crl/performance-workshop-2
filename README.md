@@ -53,22 +53,17 @@ $ cockroach sql –insecure
  
 > use workshop;
 
-workshop> create table book (
-	id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
-	title STRING NOT NULL,
-	author_name STRING,
-	price float not null,
-	format string not null,
-	publish_date DATE NOT NULL
+workshop> create table users (
+	
 );
-```
 
-This is a very simple table, and not a realistic example of a library database schema, but it serves as the basis for the set of exercises in this workshop, and will be expanded in subsequent workshops.
+workshop> create table users_colfam (
+	
+);
 
-Import the data from the uploaded CSV, replacing the string `node` with the node number of the cluster node you loaded the file to.  (Note that if you’re following the instructions using `roachprod`, the node is `1`.  If you’re running a local copy of the cockroach SQL client and connecting to a remote cluster, then the `nodelocal upload` command reported the number of the node it connected to.)
+workshop> IMPORT INTO users (title, author_name, price, format, publish_date) CSV DATA ('nodelocal://node/workshop/users.csv');
 
-```
-workshop> IMPORT INTO book (title, author_name, price, format, publish_date) CSV DATA ('nodelocal://node/workshop/library.csv');
+workshop> IMPORT INTO users_colfams (title, author_name, price, format, publish_date) CSV DATA ('nodelocal://node/workshop/users_colfam.csv');
 ```
 
 Check your work.  You should have a table book with 10M entries:
@@ -77,7 +72,8 @@ Check your work.  You should have a table book with 10M entries:
 workshop> show tables;
   schema_name |  table_name  | type  | owner | estimated_row_count | locality
 --------------+--------------+-------+-------+---------------------+-----------
-  public      | book         | table | root  |            10000000 | NULL
+  public      | users        | table | root  |            25000     | NULL
+  public      | users_colfam | table | root  |            25000     | NULL
 ```
 
 Now that we're set up, let's get started with the exercises.
