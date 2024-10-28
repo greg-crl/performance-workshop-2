@@ -1,4 +1,4 @@
-## CockroachDB Performance Workshop: Schema and Query Techniques for optimizing performance
+## CockroachDB Workshop: Schema and Query Techniques for optimizing performance
 
 This is the second in a series of workshops, and consists of a series of self-paced exercises that allow the student to demonstrate and explore concepts we present in the CEA enablement on Schema Design and Query Best Practices for optimizing performance of CockroachDB.
 
