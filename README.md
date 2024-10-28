@@ -54,11 +54,23 @@ $ cockroach sql –insecure
 > use workshop;
 
 workshop> create table users (
-	
+	userid INT8 PRIMARY KEY,
+        password STRING NULL,
+        access_count INT8 NULL,
+        cv JSONB NULL,
+        bio STRING NULL,
+        notes STRING NULL
 );
 
 workshop> create table users_colfam (
-	
+        userid INT8 PRIMARY KEY,
+        password STRING NULL,
+        access_count INT8 NULL,
+        cv JSONB NULL,
+        bio STRING NULL,
+        notes STRING NULL,
+        FAMILY f1 (password, access_count),
+        FAMILY f2 (cv, bio, notes)
 );
 
 workshop> IMPORT INTO users (title, author_name, price, format, publish_date) CSV DATA ('nodelocal://node/workshop/users.csv');
@@ -66,7 +78,7 @@ workshop> IMPORT INTO users (title, author_name, price, format, publish_date) CS
 workshop> IMPORT INTO users_colfams (title, author_name, price, format, publish_date) CSV DATA ('nodelocal://node/workshop/users_colfam.csv');
 ```
 
-Check your work.  You should have a table book with 10M entries:
+Check your work.  You should have two user tables with 25K entries each:
 
 ```
 workshop> show tables;
