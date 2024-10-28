@@ -30,7 +30,8 @@ The exercises can be performed from a SQL client that can connect to the cluster
 The student will need to load the accompanying CSV into the database.  We’ll be loading it from `nodelocal` on one of the cluster nodes, so we’ll need the CSV placed wherever the SQL client is running.  If the student will be remoting into one of the cluster nodes, execute the following 2 commands:
 
 ```
-roachprod put library.csv $CLUSTER:1
+roachprod put users.csv $CLUSTER:1
+roachprod put users_colfam.csv $CLUSTER:1
 roachprod ssh $CLUSTER:1
 ```
 
@@ -38,10 +39,11 @@ roachprod ssh $CLUSTER:1
 
 ### Setup: Creating the test database 
 
-Put the `library.csv` where the cluster can find it:
+Put the data files where the cluster can find them:
 
 ```
-$ cockroach nodelocal upload library.csv workshop/library.csv –insecure
+$ cockroach nodelocal upload users.csv workshop/users.csv –insecure
+$ cockroach nodelocal upload users_colfam.csv workshop/users_colfam.csv –insecure
 ```
 
 Connect to the cluster with the SQL client, and create a `workshop` database.  Within it, use the following command to create the table `book`:
