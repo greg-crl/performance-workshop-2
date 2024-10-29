@@ -7,6 +7,9 @@ This is the second in a series of workshops, and consists of a series of self-pa
 To do this workshop, we're going to load some data files into a database on a `cockroach` cluster.  Fetch the following CSV files from the **/data** directory of this repository to your local data store:
 * users.csv
 * users_colfam.csv
+* orders.csv
+* orderitems.csv
+* products.csv
 
 ### Setup: Creating a test cluster
 
@@ -28,11 +31,14 @@ roachprod adminui $CLUSTER:1 --open
 
 The exercises can be performed from a SQL client that can connect to the cluster.  The student can use a local copy of `cockroach` if they have one, or they can remote login to one of the nodes of the cluster and communicate with the local process.
 
-The student will need to load the accompanying CSV into the database.  We’ll be loading it from `nodelocal` on one of the cluster nodes, so we’ll need the CSV placed wherever the SQL client is running.  If the student will be remoting into one of the cluster nodes, execute the following 2 commands:
+The student will need to load the accompanying CSV into the database.  We’ll be loading it from `nodelocal` on one of the cluster nodes, so we’ll need the CSV placed wherever the SQL client is running.  If the student will be remoting into one of the cluster nodes, execute the following commands:
 
 ```
 roachprod put users.csv $CLUSTER:1
 roachprod put users_colfam.csv $CLUSTER:1
+roachprod put orders.csv $CLUSTER:1
+roachprod put orderitems.csv $CLUSTER:1
+roachprod put products.csv $CLUSTER:1
 roachprod ssh $CLUSTER:1
 ```
 
@@ -45,6 +51,9 @@ Put the data files where the cluster can find them:
 ```
 $ cockroach nodelocal upload users.csv workshop/users.csv –insecure
 $ cockroach nodelocal upload users_colfam.csv workshop/users_colfam.csv –insecure
+$ cockroach nodelocal upload orders.csv workshop/orders.csv –insecure
+$ cockroach nodelocal upload order_items.csv workshop/order_items.csv –insecure
+$ cockroach nodelocal upload products.csv workshop/products.csv –insecure
 ```
 
 Connect to the cluster with the SQL client, and create a `workshop` database.  Within it, use the following command to create the table `book`:
