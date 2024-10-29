@@ -78,6 +78,4 @@ Time travel queries can be useful for a variety of reasons:
 * **Analytics & reporting**: You can run reports on past data without needing to keep manual snapshots, and without suffering from contention with a running workload.
 * **Dashboards**: If the data you need isn't really expected to be current, as when you populate a dashboard that won't refresh for another 30 seconds, then you can populate it with data that might have been a few seconds old when it first displays.
 
-Time travel queries ...
-
 [Next Section](column_families.md)
