@@ -28,9 +28,9 @@ While perfect normalization is an academic ideal with real-world benefits, it ca
 
 As an example, consider an e-commerce platform with three tables in a normalized relational database schema:
 
-Products Table: Contains detailed information about each product.
-Orders Table: Contains information specific to each order.
-OrderItems Table: reference both the Orders and Products tables. Each line item in an order will have its own row in OrderItems, specifying the product and quantity.
+* **Products** table ontains detailed information about each product.
+* **Orders** table contains information specific to each order.
+* **OrderItems** table references both the Orders and Products tables. Each line item in an order will have its own row in OrderItems, specifying the product and quantity.
 
 ```
 CREATE TABLE Orders (
