@@ -4,8 +4,9 @@ This is the second in a series of workshops, and consists of a series of self-pa
 
 ### Setup: Preparing the data
 
-To do this workshop, we're going to load a data file into a database on a `cockroach` cluster.  To fetch and prepare the data file, follow the instructions [here](data/readme.md).
-
+To do this workshop, we're going to load some data files into a database on a `cockroach` cluster.  Fetch the following CSV files from the **/data** directory of this repository to your local data store:
+* users.csv
+* users_colfam.csv
 
 ### Setup: Creating a test cluster
 
