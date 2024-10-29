@@ -1,6 +1,6 @@
 ## Normalization and Denormalization
 
-When we're taught relational data modeling and schema design, we're taught to normalize our data.  That is, we learn to create a model of our objects and the relationships between them in such a way that any one piece of data is stored exactly once in the database.  In a completely normalized database there is, any single piece of data is represented in one column in one record of one table.  That logical "cell" (row and column in a table) represents the single source of truth for that data, one place to look up or update its value.
+When we're taught relational data modeling and schema design, we're taught to normalize our data.  That is, we learn to create a model of our objects and the relationships between them in such a way that any one piece of data is stored exactly once in the database.  In a completely normalized database, any single piece of data is represented in one column in one record of one table.  That logical "cell" (row and column in a table) represents the single source of truth for that data, one place to look up or update its value.
 
 ### Benefits of Normalization
 
